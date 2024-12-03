@@ -65,6 +65,5 @@ def main():
         cv2.destroyAllWindows()
 
 
-# === Çalıştırma ===
 if __name__ == "__main__":
     main()
