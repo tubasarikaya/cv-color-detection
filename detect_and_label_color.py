@@ -23,14 +23,12 @@ def detect_and_label_color(image_frame, mask, color_name, bounding_box_color):
     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     for contour in contours:
         area = cv2.contourArea(contour)
-        if area > 300:  # Sadece büyük nesneler
+        if area > 300: 
             x, y, w, h = cv2.boundingRect(contour)
             cv2.rectangle(image_frame, (x, y), (x + w, y + h), bounding_box_color, 2)
             cv2.putText(image_frame, f"{color_name} Color", (x, y - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, bounding_box_color, 2)
 
-
-# === Ana Fonksiyon ===
 def main():
     
     webcam = cv2.VideoCapture(0)
